@@ -1,4 +1,7 @@
 let ajax = function (options) {
+    function setDefaultVal(value, defaultValue){
+        return (value === undefined) ? defaultValue : value;
+    }
     let settings = {
         url: setDefaultVal(options.url, ""),
         type: setDefaultVal(options.type, "GET"),
@@ -6,10 +9,10 @@ let ajax = function (options) {
         data: setDefaultVal(options.data, {}),
         dataType: setDefaultVal(options.dataType, "text"),
         success: setDefaultVal(options.success, function (response) {
-            clog(response);
+            console.log(response);
         }),
         error: setDefaultVal(options.error, function (error) {
-            clog(error)
+            console.log(error)
         })
     };
     // Can implement multiple methods of Ajax
